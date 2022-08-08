@@ -1,0 +1,30 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    function drawSquare(color, x, y) {
+
+        var canvas = document.querySelector("canvas");
+        var brush = canvas.getContext("2d");
+
+        brush.fillStyle = color;
+        brush.fillRect(x, y, 50, 50);
+        brush.fillStroke = "black";
+        //brush.strokeStyle = "red";
+        brush.strokeRect(x, y, 50, 50);
+
+    }
+
+    var x = 0;
+
+    for (var i = 0; x < 600; i++){
+        drawSquare("lightgreen", x, 0);
+        drawSquare("lightpink", x, 50);
+        drawSquare("yellow", x, 100);
+        drawSquare("lightblue", x, 150);
+        x += 50;
+    }
+       
+
+
+</script>
