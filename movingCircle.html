@@ -1,0 +1,55 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var canvas = document.querySelector("canvas");
+    var brush = canvas.getContext("2d");
+    brush.fillStyle = "lightblue";
+    brush.fillRect(0, 0, 600, 400);
+
+    function drawCircle(x, y, radius) {
+
+        brush.fillStyle = "blue";
+        brush.beginPath();
+        brush.arc(x, y, radius, 0, 2 * Math.PI);
+        brush.fill();
+
+    }
+
+    function clearCanvas() {
+        brush.clearRect(0, 0, 600, 400);
+    }
+
+    var x = 20;
+
+    var left = false;
+    var right = true;
+
+    function updateCanvas() {
+
+        if (right) {
+            clearCanvas();
+            drawCircle(x, 20, 10);
+            x++;
+            if (x == 580) {
+                left = true;
+                right = false;
+            }
+        }
+
+        if (left) {
+            clearCanvas();
+            drawCircle(x, 20, 10);
+            x--;
+            if(x == 20){
+                right = true;
+                left = false;
+            }
+        }
+    }
+
+
+
+    setInterval(updateCanvas, 5);
+
+</script>
